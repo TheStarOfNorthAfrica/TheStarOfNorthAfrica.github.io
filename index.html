@@ -33,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* scanline effect */
   body::before {
     content: '';
     position: fixed;
@@ -43,7 +42,6 @@
     z-index: 9999;
   }
 
-  /* grid bg */
   body::after {
     content: '';
     position: fixed;
@@ -54,7 +52,6 @@
     z-index: 0;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -79,11 +76,7 @@
 
   .nav-logo span { color: var(--accent2); }
 
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-  }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
 
   nav a {
     font-family: 'Share Tech Mono', monospace;
@@ -96,7 +89,6 @@
 
   nav a:hover { color: var(--accent); }
 
-  /* HERO */
   .hero {
     position: relative;
     z-index: 1;
@@ -139,11 +131,7 @@
     color: var(--text);
   }
 
-  h1 .glitch {
-    color: var(--accent);
-    position: relative;
-    display: inline-block;
-  }
+  h1 .glitch { color: var(--accent); position: relative; display: inline-block; }
 
   .hero-desc {
     font-size: 1.1rem;
@@ -190,30 +178,12 @@
     border-radius: 2px;
   }
 
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0a0f;
-    font-weight: 700;
-  }
-
-  .btn-primary:hover {
-    box-shadow: var(--glow);
-    transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    border: 1px solid var(--border);
-    color: var(--text);
-  }
-
-  .btn-ghost:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
+  .btn-primary { background: var(--accent); color: #0a0a0f; font-weight: 700; }
+  .btn-primary:hover { box-shadow: var(--glow); transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-  /* SECTIONS */
   section {
     position: relative;
     z-index: 1;
@@ -250,7 +220,6 @@
     background: linear-gradient(90deg, var(--border), transparent);
   }
 
-  /* GAMES GRID */
   .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -285,10 +254,7 @@
     overflow: hidden;
   }
 
-  .game-thumb-icon {
-    font-size: 3rem;
-    opacity: 0.6;
-  }
+  .game-thumb-icon { font-size: 3rem; opacity: 0.6; }
 
   .game-thumb::after {
     content: '';
@@ -316,11 +282,7 @@
     margin-bottom: 1rem;
   }
 
-  .game-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
+  .game-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
   .game-tag {
     font-family: 'Share Tech Mono', monospace;
@@ -339,7 +301,6 @@
     color: #a78bfa;
   }
 
-  /* ADD GAME placeholder */
   .game-card-placeholder {
     background: var(--bg2);
     border: 1px dashed rgba(0,245,196,0.2);
@@ -353,10 +314,7 @@
     color: var(--muted);
   }
 
-  .placeholder-icon {
-    font-size: 2rem;
-    opacity: 0.3;
-  }
+  .placeholder-icon { font-size: 2rem; opacity: 0.3; }
 
   .placeholder-text {
     font-family: 'Share Tech Mono', monospace;
@@ -365,7 +323,6 @@
     opacity: 0.4;
   }
 
-  /* ABOUT */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -373,9 +330,7 @@
     align-items: start;
   }
 
-  @media (max-width: 640px) {
-    .about-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
 
   .about-text p {
     color: var(--muted);
@@ -386,11 +341,7 @@
 
   .about-text p strong { color: var(--text); font-weight: 500; }
 
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
   .stat-card {
     background: var(--bg2);
@@ -416,12 +367,7 @@
     text-transform: uppercase;
   }
 
-  /* STACK */
-  .stack-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
+  .stack-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
   .stack-item {
     font-family: 'Share Tech Mono', monospace;
@@ -435,45 +381,8 @@
     transition: all 0.2s;
   }
 
-  .stack-item:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .stack-item:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* CONTACT */
-  .contact-box {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 3rem;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .contact-box h3 {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--accent);
-  }
-
-  .contact-box p {
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-
-  .contact-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* FOOTER */
   footer {
     position: relative;
     z-index: 1;
@@ -491,7 +400,6 @@
 
   footer span { color: var(--accent); }
 
-  /* cursor blink */
   .cursor::after {
     content: '_';
     animation: blink 1s step-end infinite;
@@ -503,7 +411,6 @@
     50% { opacity: 0; }
   }
 
-  /* section divider */
   .divider {
     position: relative;
     z-index: 1;
@@ -566,6 +473,29 @@
         </div>
       </div>
     </a>
+
+
+
+
+   
+    <a href="https://thestarofnorthafrica.itch.io/machgui-exp" target="_blank" class="game-card">
+      <div class="game-thumb">
+        <div class="game-thumb-icon">⬜</div>
+      </div>
+      <div class="game-info">
+        <div class="game-title">MachGui</div>
+        <p class="game-desc">My third learning game, made for me learning gui scripting in godot.</p>
+        <div class="game-tags">
+          <span class="game-tag">Puzzle</span>
+          <span class="game-tag purple">Godot 4</span>
+        </div>
+      </div>
+    </a>
+
+
+
+   
+    <!-- ===================================================== -->
 
     <div class="game-card-placeholder">
       <div class="placeholder-icon">+</div>
