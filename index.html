@@ -691,7 +691,7 @@ themeToggle.addEventListener('click', () => {
   htmlElement.classList.toggle('light-mode');
   const isLightMode = htmlElement.classList.contains('light-mode');
   localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-  themeToggle.textContent = isLightMode ? '🌙' : ☀️';
+  themeToggle.textContent = isLightMode ? '🌙' : '☀️';
 });
 </script>
 
