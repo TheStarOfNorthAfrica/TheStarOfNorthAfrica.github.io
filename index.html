@@ -127,7 +127,6 @@
     border-color: var(--accent);
   }
 
-  /* ===== ROTATE POPUP ===== */
   #rotate-popup {
     position: fixed;
     inset: 0;
@@ -151,7 +150,6 @@
     text-align: center;
     box-shadow: var(--glow);
   }
-  /* ======================== */
 
   .hero {
     position: relative;
@@ -486,7 +484,6 @@
 </head>
 <body>
 
-<!-- ROTATE POPUP -->
 <div id="rotate-popup">
   <div class="rotate-box">
     rotate your device for a better experience
@@ -507,7 +504,7 @@
     <div class="hero-tag">indie game developer</div>
     <h1>Making games<br>for <span class="glitch">everyone</span><span class="cursor"></span></h1>
     <p class="hero-desc">
-      hi,I am <strong>SpectralGlitch</strong>,um a self-taught game dev from <strong>Algeria 🇩🇿</strong>. I build free games using godot. No p2w, No buying, No disadvantages. just games.
+      hi,i'm <strong>SpectralGlitch</strong>,um a self-taught game dev from <strong>Algeria 🇩🇿</strong>. I build free games using godot. no p2w, no buying, none of that shit. just games.
     </p>
     <div class="hero-flags">
       <span class="flag-tag">Godot Engine</span>
@@ -553,7 +550,7 @@
       </div>
       <div class="game-info">
         <div class="game-title">MachGui</div>
-        <p class="game-desc">My third learning game, made for me learning gui scripting in godot, try to reach the end game (the game is very short).</p>
+        <p class="game-desc">my third learning game, made for me learning gui scripting in godot, try to reach the end game (the game is very short).</p>
         <div class="game-tags">
           <span class="game-tag">Puzzle</span>
           <span class="game-tag purple">Godot 4</span>
@@ -561,6 +558,8 @@
         </div>
       </div>
     </a>
+
+   
     <a href="https://thestarofnorthafrica.itch.io/machflappydor" target="_blank" class="game-card">
       <div class="game-thumb">
         <div class="game-thumb-icon"><img src="pfpmach.png"></div>
@@ -575,6 +574,8 @@
         </div>
       </div>
     </a>
+
+   
     <a href="https://thestarofnorthafrica.itch.io/themachofcreation" target="_blank" class="game-card">
       <div class="game-thumb">
         <div class="game-thumb-icon"><img src="New Project.png"></div>
@@ -605,8 +606,6 @@
         </div>
       </div>
     </a>
-
-
 
     <div class="game-card-placeholder">
       <div class="placeholder-icon">+</div>
@@ -679,11 +678,9 @@ function checkOrientation() {
 window.addEventListener("load", checkOrientation);
 window.addEventListener("resize", checkOrientation);
 
-// Theme toggle functionality
 const themeToggle = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
 
-// Check for saved theme preference or default to dark mode
 const currentTheme = localStorage.getItem('theme') || 'dark';
 if (currentTheme === 'light') {
   htmlElement.classList.add('light-mode');
@@ -694,7 +691,7 @@ themeToggle.addEventListener('click', () => {
   htmlElement.classList.toggle('light-mode');
   const isLightMode = htmlElement.classList.contains('light-mode');
   localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-  themeToggle.textContent = isLightMode ? '🌙' : '☀️';
+  themeToggle.textContent = isLightMode ? '🌙' : ☀️';
 });
 </script>
 
