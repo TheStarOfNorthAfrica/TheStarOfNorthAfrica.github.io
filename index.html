@@ -22,6 +22,19 @@
     --glow: 0 0 20px rgba(0, 245, 196, 0.3);
   }
 
+  html.light-mode {
+    --bg: #f8f9fa;
+    --bg2: #ffffff;
+    --bg3: #f0f1f3;
+    --accent: #00d9b5;
+    --accent2: #7c3aed;
+    --accent3: #f59e0b;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: rgba(0, 217, 181, 0.2);
+    --glow: 0 0 20px rgba(0, 217, 181, 0.2);
+  }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -31,6 +44,7 @@
     font-weight: 300;
     line-height: 1.7;
     overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
   }
 
   body::before {
@@ -63,6 +77,11 @@
     background: rgba(10,10,15,0.85);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
+    transition: background-color 0.3s;
+  }
+
+  html.light-mode nav {
+    background: rgba(248,249,250,0.85);
   }
 
   .nav-logo {
@@ -76,7 +95,7 @@
 
   .nav-logo span { color: var(--accent2); }
 
-  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
 
   nav a {
     font-family: 'Share Tech Mono', monospace;
@@ -88,6 +107,25 @@
   }
 
   nav a:hover { color: var(--accent); }
+
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
 
   /* ===== ROTATE POPUP ===== */
   #rotate-popup {
@@ -460,6 +498,7 @@
   <ul>
     <li><a href="#games">games</a></li>
     <li><a href="#about">about</a></li>
+    <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button></li>
   </ul>
 </nav>
 
@@ -557,7 +596,7 @@
       </div>
       <div class="game-info">
         <div class="game-title">A Game About Quitting A Game</div>
-        <p class="game-desc">My sixth learning game, i learned a lot of godot from it,for example adding particles, shaders, and try to quit the game !</p>
+        <p class="game-desc">My sixth learning game,i learned a lot of godot from it,for example adding particles, shaders, and try to quit the game !</p>
         <div class="game-tags">
           <span class="game-tag">Platformer</span>
           <span class="game-tag purple">Godot 4</span>
@@ -587,9 +626,9 @@
 
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a self-taught developer from <strong>Algeria</strong>, learning game dev with Godot 4 and GDScript. I started from zero and I'm building my way up one small game at a time.</p>
-      <p>I believe games should be <strong>free for everyone</strong>. no purchases, no subscriptions, just fun.</p>
-      <p>Maybe in the future i will become a good game developper.</p>
+      <p>i'm a self-taught developer from <strong>Algeria</strong>, learning game dev with Godot 4 and GDScript,i started from zero and i'm building my way up one small game at a time.</p>
+      <p>i believe games should be <strong>free for everyone</strong>. no buying, no monthly p2w things, just fun.</p>
+      <p>maybe in the future i will become a good game developper.</p>
       <div style="margin-top: 2rem;">
         <div class="section-header" style="margin-bottom: 1.25rem;">
           <span class="section-num">Stack</span>
@@ -609,11 +648,11 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-num">5</div>
-        <div class="stat-label">Games shipped</div>
+        <div class="stat-label">games shipped</div>
       </div>
       <div class="stat-card">
         <div class="stat-num">$0</div>
-        <div class="stat-label">Cost to play</div>
+        <div class="stat-label">cost to play</div>
       </div>
     </div>
   </div>
@@ -621,8 +660,8 @@
 
 <div class="divider"></div>
 <footer>
-  <p>Built with 💚 by <span>SpectralGlitch</span></p>
-  <p><strong style="color: white;">© 2026 SONAS-Gamedev, All rights reserved</strong></p>
+  <p>Built with 💚 by <span>spectralglitch</span></p>
+  <p><strong style="color: white;">© 2026 SONAS-Gamedev, all rights reserved</strong></p>
 </footer>
 
 <script>
@@ -639,6 +678,24 @@ function checkOrientation() {
 
 window.addEventListener("load", checkOrientation);
 window.addEventListener("resize", checkOrientation);
+
+// Theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
+if (currentTheme === 'light') {
+  htmlElement.classList.add('light-mode');
+  themeToggle.textContent = '☀️';
+}
+
+themeToggle.addEventListener('click', () => {
+  htmlElement.classList.toggle('light-mode');
+  const isLightMode = htmlElement.classList.contains('light-mode');
+  localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+  themeToggle.textContent = isLightMode ? '☀️' : '🌙';
+});
 </script>
 
 </body>
