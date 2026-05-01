@@ -607,7 +607,7 @@ const htmlElement = document.documentElement;
 const currentTheme = localStorage.getItem('theme') || 'dark';
 if (currentTheme === 'light') {
   htmlElement.classList.add('light-mode');
-  themeToggle.textContent = '🌙';
+  themeToggle.textContent = '☀️';
 }
 themeToggle.addEventListener('click', () => {
   const willBeLight = !htmlElement.classList.contains('light-mode');
