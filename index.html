@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --bg: #0a0a0f;
     --bg2: #0f0f1a;
@@ -21,7 +20,6 @@
     --border: rgba(0, 245, 196, 0.15);
     --glow: 0 0 20px rgba(0, 245, 196, 0.3);
   }
-
   html.light-mode {
     --bg: #f8f9fa;
     --bg2: #ffffff;
@@ -34,9 +32,7 @@
     --border: rgba(0, 217, 181, 0.2);
     --glow: 0 0 20px rgba(0, 217, 181, 0.2);
   }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -46,7 +42,6 @@
     overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
   }
-
   body::before {
     content: '';
     position: fixed;
@@ -55,7 +50,6 @@
     pointer-events: none;
     z-index: 9999;
   }
-
   body::after {
     content: '';
     position: fixed;
@@ -65,7 +59,6 @@
     pointer-events: none;
     z-index: 0;
   }
-
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -79,11 +72,9 @@
     border-bottom: 1px solid var(--border);
     transition: background-color 0.3s;
   }
-
   html.light-mode nav {
     background: rgba(248,249,250,0.85);
   }
-
   .nav-logo {
     font-family: 'Orbitron', monospace;
     font-weight: 900;
@@ -92,11 +83,8 @@
     text-decoration: none;
     letter-spacing: 2px;
   }
-
   .nav-logo span { color: var(--accent2); }
-
   nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
-
   nav a {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.85rem;
@@ -105,9 +93,7 @@
     letter-spacing: 1px;
     transition: color 0.2s;
   }
-
   nav a:hover { color: var(--accent); }
-
   .theme-toggle {
     background: none;
     border: 1px solid var(--border);
@@ -121,12 +107,10 @@
     justify-content: center;
     transition: all 0.2s;
   }
-
   .theme-toggle:hover {
     color: var(--accent);
     border-color: var(--accent);
   }
-
   #rotate-popup {
     position: fixed;
     inset: 0;
@@ -137,7 +121,6 @@
     align-items: center;
     justify-content: center;
   }
-
   .rotate-box {
     border: 1px solid var(--border);
     border-radius: 4px;
@@ -150,7 +133,6 @@
     text-align: center;
     box-shadow: var(--glow);
   }
-
   .hero {
     position: relative;
     z-index: 1;
@@ -161,9 +143,7 @@
     max-width: 1100px;
     margin: 0 auto;
   }
-
   .hero-content { max-width: 700px; }
-
   .hero-tag {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.8rem;
@@ -175,7 +155,6 @@
     align-items: center;
     gap: 0.5rem;
   }
-
   .hero-tag::before {
     content: '';
     display: inline-block;
@@ -183,7 +162,6 @@
     height: 1px;
     background: var(--accent);
   }
-
   h1 {
     font-family: 'Orbitron', monospace;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -192,7 +170,6 @@
     margin-bottom: 1.5rem;
     color: var(--text);
   }
-
   h1 .glitch { color: var(--accent); position: relative; display: inline-block; }
 
   .hero-desc {
@@ -202,7 +179,6 @@
     margin-bottom: 2.5rem;
     line-height: 1.8;
   }
-
   .hero-desc strong { color: var(--text); font-weight: 500; }
 
   .hero-flags {
@@ -212,7 +188,6 @@
     margin-bottom: 2.5rem;
     flex-wrap: wrap;
   }
-
   .flag-tag {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.75rem;
@@ -222,10 +197,8 @@
     color: var(--accent);
     letter-spacing: 1px;
   }
-
   .flag-tag.purple { border-color: rgba(124,58,237,0.4); color: #a78bfa; }
   .flag-tag.amber { border-color: rgba(245,158,11,0.4); color: var(--accent3); }
-
   .btn {
     display: inline-flex;
     align-items: center;
@@ -239,13 +212,11 @@
     transition: all 0.2s;
     border-radius: 2px;
   }
-
   .btn-primary { background: var(--accent); color: #0a0a0f; font-weight: 700; }
   .btn-primary:hover { box-shadow: var(--glow); transform: translateY(-1px); }
   .btn-ghost { border: 1px solid var(--border); color: var(--text); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-
   section {
     position: relative;
     z-index: 1;
@@ -253,21 +224,18 @@
     max-width: 1100px;
     margin: 0 auto;
   }
-
   .section-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 3rem;
   }
-
   .section-num {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.75rem;
     color: var(--accent);
     letter-spacing: 2px;
   }
-
   h2 {
     font-family: 'Orbitron', monospace;
     font-size: clamp(1.3rem, 3vw, 1.8rem);
@@ -275,19 +243,16 @@
     color: var(--text);
     letter-spacing: 1px;
   }
-
   .section-line {
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, var(--border), transparent);
   }
-
   .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
   }
-
   .game-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -297,13 +262,11 @@
     text-decoration: none;
     display: block;
   }
-
   .game-card:hover {
     border-color: var(--accent);
     transform: translateY(-4px);
     box-shadow: var(--glow);
   }
-
   .game-thumb {
     width: 100%;
     height: 160px;
@@ -315,7 +278,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .game-thumb-icon { font-size: 3rem; opacity: 0.6; }
 
   .game-thumb::after {
@@ -325,9 +287,7 @@
     height: 40px;
     background: linear-gradient(transparent, var(--bg2));
   }
-
   .game-info { padding: 1.25rem; }
-
   .game-title {
     font-family: 'Orbitron', monospace;
     font-size: 0.9rem;
@@ -336,16 +296,13 @@
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
   }
-
   .game-desc {
     font-size: 0.82rem;
     color: var(--muted);
     line-height: 1.6;
     margin-bottom: 1rem;
   }
-
   .game-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
   .game-tag {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.7rem;
@@ -356,13 +313,11 @@
     border-radius: 2px;
     letter-spacing: 1px;
   }
-
   .game-tag.purple {
     background: rgba(124,58,237,0.08);
     border-color: rgba(124,58,237,0.3);
     color: #a78bfa;
   }
-
   .game-card-placeholder {
     background: var(--bg2);
     border: 1px dashed rgba(0,245,196,0.2);
@@ -375,43 +330,34 @@
     gap: 0.75rem;
     color: var(--muted);
   }
-
   .placeholder-icon { font-size: 2rem; opacity: 0.3; }
-
   .placeholder-text {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.75rem;
     letter-spacing: 2px;
     opacity: 0.4;
   }
-
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: start;
   }
-
   @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
-
   .about-text p {
     color: var(--muted);
     font-size: 0.95rem;
     margin-bottom: 1rem;
     line-height: 1.8;
   }
-
   .about-text p strong { color: var(--text); font-weight: 500; }
-
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
   .stat-card {
     background: var(--bg2);
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 1.25rem;
   }
-
   .stat-num {
     font-family: 'Orbitron', monospace;
     font-size: 1.8rem;
@@ -420,7 +366,6 @@
     line-height: 1;
     margin-bottom: 0.4rem;
   }
-
   .stat-label {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.72rem;
@@ -428,9 +373,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-
   .stack-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-
   .stack-item {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.8rem;
@@ -442,9 +385,7 @@
     letter-spacing: 1px;
     transition: all 0.2s;
   }
-
   .stack-item:hover { border-color: var(--accent); color: var(--accent); }
-
   footer {
     position: relative;
     z-index: 1;
@@ -452,27 +393,22 @@
     padding: 2rem;
     text-align: center;
   }
-
   footer p {
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.75rem;
     color: var(--muted);
     letter-spacing: 1px;
   }
-
   footer span { color: var(--accent); }
-
   .cursor::after {
     content: '_';
     animation: blink 1s step-end infinite;
     color: var(--accent);
   }
-
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
   }
-
   .divider {
     position: relative;
     z-index: 1;
@@ -483,13 +419,11 @@
 </style>
 </head>
 <body>
-
 <div id="rotate-popup">
   <div class="rotate-box">
     rotate your device for a better experience
   </div>
 </div>
-
 <nav>
   <a href="#" class="nav-logo">TheStarOf<span>NorthAfrica-Studios [SONAS]</span></a>
   <ul>
@@ -498,7 +432,6 @@
     <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button></li>
   </ul>
 </nav>
-
 <div class="hero">
   <div class="hero-content">
     <div class="hero-tag">indie game developer</div>
@@ -517,18 +450,14 @@
     </div>
   </div>
 </div>
-
 <div class="divider"></div>
-
 <section id="games">
   <div class="section-header">
     <span class="section-num">01 —</span>
     <h2>Games</h2>
     <div class="section-line"></div>
   </div>
-
   <div class="games-grid">
-
     <a href="https://thestarofnorthafrica.itch.io/machformer" target="_blank" class="game-card">
       <div class="game-thumb">
         <div class="game-thumb-icon">📦</div>
@@ -543,7 +472,6 @@
         </div>
       </div>
     </a>
-
     <a href="https://thestarofnorthafrica.itch.io/machgui-exp" target="_blank" class="game-card">
       <div class="game-thumb">
         <div class="game-thumb-icon"><img src="machguiicon.png"></div>
@@ -558,8 +486,6 @@
         </div>
       </div>
     </a>
-
-   
     <a href="https://thestarofnorthafrica.itch.io/machflappydor" target="_blank" class="game-card">
       <div class="game-thumb">
         <div class="game-thumb-icon"><img src="pfpmach.png"></div>
@@ -574,8 +500,6 @@
         </div>
       </div>
     </a>
-
-   
     <a href="https://thestarofnorthafrica.itch.io/themachofcreation" target="_blank" class="game-card">
       <div class="game-thumb">
         <div class="game-thumb-icon"><img src="New Project.png"></div>
@@ -590,7 +514,6 @@
         </div>
       </div>
     </a>
-
     <a href="https://thestarofnorthafrica.itch.io/a-game-about-quitting-a-game" target="_blank" class="game-card">
       <div class="game-thumb">
         <div class="game-thumb-icon"><img src="pfpez.png"></div>
@@ -606,23 +529,19 @@
         </div>
       </div>
     </a>
-
     <div class="game-card-placeholder">
       <div class="placeholder-icon">+</div>
       <div class="placeholder-text">More games coming soon</div>
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
-
 <section id="about">
   <div class="section-header">
     <span class="section-num">02 —</span>
     <h2>About</h2>
     <div class="section-line"></div>
   </div>
-
   <div class="about-grid">
     <div class="about-text">
       <p>• i'm a self-taught developer from <strong>Algeria</strong>, learning game dev with Godot 4 and GDScript,i started from zero and i'm building my way up one small game at a time.</p>
@@ -643,7 +562,6 @@
         </div>
       </div>
     </div>
-
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-num">5</div>
@@ -656,13 +574,11 @@
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
 <footer>
   <p>Built with 💚 by <span>spectralglitch</span></p>
   <p><strong>©2026 SONAS-gamedev, all rights reserved</strong></p>
 </footer>
-
 <script>
 function checkOrientation() {
   const popup = document.getElementById("rotate-popup");
@@ -674,19 +590,15 @@ function checkOrientation() {
     popup.style.display = "none";
   }
 }
-
 window.addEventListener("load", checkOrientation);
 window.addEventListener("resize", checkOrientation);
-
 const themeToggle = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
-
 const currentTheme = localStorage.getItem('theme') || 'dark';
 if (currentTheme === 'light') {
   htmlElement.classList.add('light-mode');
   themeToggle.textContent = '🌙';
 }
-
 themeToggle.addEventListener('click', () => {
   htmlElement.classList.toggle('light-mode');
   const isLightMode = htmlElement.classList.contains('light-mode');
@@ -694,6 +606,5 @@ themeToggle.addEventListener('click', () => {
   themeToggle.textContent = isLightMode ? '🌙' : '☀️';
 });
 </script>
-
 </body>
 </html>
