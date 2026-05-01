@@ -600,10 +600,10 @@ if (currentTheme === 'light') {
   themeToggle.textContent = '☀️';
 }
 themeToggle.addEventListener('click', () => {
-  htmlElement.classList.toggle('light-mode');
-  const isLightMode = htmlElement.classList.contains('light-mode');
-  localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-  themeToggle.textContent = isLightMode ? '🌙' : '☀️';
+  const willBeLight = !htmlElement.classList.contains('light-mode');
+  htmlElement.classList.toggle('light-mode', willBeLight);
+  localStorage.setItem('theme', willBeLight ? 'light' : 'dark');
+  themeToggle.textContent = willBeLight ? '☀️' : '🌙';
 });
 </script>
 </body>
