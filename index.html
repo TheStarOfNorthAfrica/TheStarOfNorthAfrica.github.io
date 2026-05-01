@@ -426,6 +426,33 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
+.lang-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 2px;
+  font-family: 'Share Tech Mono', monospace;
+}
+.lang-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* light mode readability fix */
+html.light-mode nav a {
+  color: var(--text);
+  opacity: 0.9;
+}
+
+html.light-mode .hero-desc,
+html.light-mode .game-desc,
+html.light-mode .about-text p {
+  color: var(--text);
+  opacity: 0.85;
+}
 </style>
 </head>
 <body>
@@ -437,6 +464,7 @@
 <nav>
   <a href="#" class="nav-logo">TheStarOf<span>NorthAfrica-Studios [SONAS]</span></a>
   <ul>
+    <li><button class="lang-toggle" id="lang-toggle">EN</button></li>
     <li><a href="#games">games</a></li>
     <li><a href="#about">about</a></li>
     <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button></li>
@@ -614,6 +642,36 @@ themeToggle.addEventListener('click', () => {
   htmlElement.classList.toggle('light-mode', willBeLight);
   localStorage.setItem('theme', willBeLight ? 'light' : 'dark');
   themeToggle.textContent = willBeLight ? '☀️' : '🌙';
+});
+const translations = {
+  en: {
+    games: "games",
+    about: "about",
+    hero: document.querySelector('.hero-desc').textContent
+  },
+  fr: {
+    games: "jeux",
+    about: "à propos",
+    hero: "salut, je suis SpectralGlitch, développeur de jeux indépendant d'Algérie 🇩🇿."
+  }
+};
+
+const langToggle = document.getElementById("lang-toggle");
+let lang = localStorage.getItem("lang") || "en";
+
+function applyLang(l) {
+  document.getElementById("nav-games").textContent = translations[l].games;
+  document.querySelector('a[href="#about"]').textContent = translations[l].about;
+  document.querySelector('.hero-desc').textContent = translations[l].hero;
+  langToggle.textContent = l.toUpperCase();
+}
+
+applyLang(lang);
+
+langToggle.addEventListener("click", () => {
+  lang = lang === "en" ? "fr" : "en";
+  localStorage.setItem("lang", lang);
+  applyLang(lang);
 });
 </script>
 </body>
