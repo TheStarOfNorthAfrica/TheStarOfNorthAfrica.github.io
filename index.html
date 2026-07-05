@@ -223,15 +223,21 @@
     left: 0;
     top: 42px;
     bottom: 0;
-    width: 240px;
+    /* Let the sidebar size itself to fit the buttons */
+    width: fit-content;
+    min-width: 140px;
+    max-width: 260px;
     background: var(--surface);
     border-right: 2px solid var(--accent);
     padding: 20px 12px;
     z-index: 900;
     animation: slide-in-left 0.7s ease 0.1s both;
+    white-space: nowrap;
   }
   .sidebar-nav {
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
   .sidebar-nav li {
     animation: slide-in-left 0.6s ease forwards;
@@ -251,10 +257,10 @@
   }
 
   .sidebar-nav a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 16px;
+    padding: 10px 14px;
     color: var(--text-secondary);
     text-decoration: none;
     border-radius: 8px;
@@ -285,9 +291,11 @@
 
   /* Main Content */
   .main {
+    /* keep a sensible default until JS adjusts it */
     margin-left: 240px;
     padding-top: 62px;
     min-height: 100vh;
+    transition: margin-left 0.18s ease;
   }
 
   .content {
@@ -926,6 +934,42 @@
       }
     });
   });
+
+  // Adjust main margin to match the sidebar's actual width so it "fits" the buttons
+  function adjustLayoutToSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const main = document.querySelector('.main');
+    if (!sidebar || !main) return;
+
+    // Measure computed width including padding and border
+    const rect = sidebar.getBoundingClientRect();
+    const width = Math.ceil(rect.width);
+
+    // Apply the width as left margin to the main content so it lines up
+    main.style.marginLeft = width + 'px';
+
+    // Ensure the sidebar sits just below the topbar (in case topbar height changes)
+    const topbar = document.querySelector('.gnome-topbar');
+    if (topbar) {
+      sidebar.style.top = topbar.offsetHeight + 'px';
+      // also ensure the main content padding-top accounts for the topbar
+      main.style.paddingTop = (topbar.offsetHeight + 20) + 'px';
+    }
+  }
+
+  window.addEventListener('load', () => {
+    adjustLayoutToSidebar();
+    // Re-run after a short delay to account for font loading that can change sizes
+    setTimeout(adjustLayoutToSidebar, 300);
+  });
+  window.addEventListener('resize', adjustLayoutToSidebar);
+
+  // If the DOM changes the sidebar (adding projects or labels), observe and adjust
+  const sidebar = document.querySelector('.sidebar');
+  if (sidebar && window.MutationObserver) {
+    const mo = new MutationObserver(() => adjustLayoutToSidebar());
+    mo.observe(sidebar, { childList: true, subtree: true });
+  }
 </script>
 </body>
 </html>
