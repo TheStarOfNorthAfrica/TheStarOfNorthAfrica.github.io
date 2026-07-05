@@ -63,6 +63,16 @@
     to { transform: rotate(360deg); }
   }
 
+  @keyframes theme-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes theme-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
   :root {
     --bg: #1a1a1a;
     --surface: #2d2d2d;
@@ -88,6 +98,38 @@
     --border: rgba(0,0,0,0.12);
     --success: #26a269;
     --warning: #e5a50a;
+  }
+
+  /* Theme transition overlay */
+  html.theme-transition::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 8888;
+    animation: theme-fade-in 0.2s ease forwards, theme-fade-out 0.2s ease 0.3s forwards;
+  }
+
+  html.theme-transition,
+  html.theme-transition body {
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html.theme-transition .gnome-topbar,
+  html.theme-transition .sidebar,
+  html.theme-transition .project-card,
+  html.theme-transition .about-content,
+  html.theme-transition .hero {
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html.theme-transition .theme-toggle {
+    animation: bounce-in 0.4s ease;
   }
 
   * { box-sizing: border-box; }
@@ -800,11 +842,14 @@
   </div>
 
 <script>
-  // Theme Toggle
+  // Theme Toggle with Animation
   const toggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
   
   function setTheme(isLight) {
+    // Add transition class
+    html.classList.add('theme-transition');
+    
     if (isLight) {
       html.classList.add('light-mode');
       toggle.textContent = '☀️';
@@ -813,6 +858,11 @@
       toggle.textContent = '🌙';
     }
     localStorage.setItem('sonas-theme', isLight ? 'light' : 'dark');
+    
+    // Remove transition class after animation completes
+    setTimeout(() => {
+      html.classList.remove('theme-transition');
+    }, 400);
   }
 
   const savedTheme = localStorage.getItem('sonas-theme');
